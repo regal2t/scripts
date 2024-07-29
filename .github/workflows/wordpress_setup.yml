@@ -1,0 +1,25 @@
+name: install wordpress mysql and nginx 
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+
+jobs:
+  install:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up environment
+      run: |
+        sudo apt update
+
+    - name: Run install_Wordpress.sh script
+      run: |
+        chmod +x ./install_Wordpress.sh
+        sudo ./install_Wordpress.sh
