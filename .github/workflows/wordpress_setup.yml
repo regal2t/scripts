@@ -18,8 +18,10 @@ jobs:
     - name: Set up environment
       run: |
         sudo apt update
+        sudo apt-get install git
 
     - name: Run install_Wordpress.sh script
       run: |
+        git clone https://github.com/regal2t/scripts.git
         chmod +x ./install_Wordpress.sh
         sudo ./install_Wordpress.sh
